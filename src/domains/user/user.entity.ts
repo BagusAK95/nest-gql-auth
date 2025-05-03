@@ -9,6 +9,9 @@ export class User {
   email: string;
 
   @Field()
+  phone: string;
+
+  @Field()
   firstName: string;
 
   @Field()

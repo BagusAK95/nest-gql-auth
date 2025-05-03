@@ -15,10 +15,11 @@ type User {
   firstName: String!
   id: ID!
   lastName: String!
+  phone: String!
 }
 
 input UserLoginInput {
-  email: String!
+  identifier: String!
   password: String!
 }
 
