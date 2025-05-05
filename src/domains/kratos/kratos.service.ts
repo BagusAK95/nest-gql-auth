@@ -13,7 +13,19 @@ export class KratosService {
     this.kratos = new KratosClient.FrontendApi(config)
   }
 
-  async passwordLogin(identifier: string, password: string): Promise<KratosClient.SuccessfulNativeLogin> {
+  async session(token: string): Promise<KratosClient.Session> {
+    try {
+      const session = await this.kratos.toSession({
+        xSessionToken: token
+      })
+  
+      return session.data  
+    } catch (error) {
+      throw new Error(error.response.data.error.reason)
+    }
+  }
+
+  async passwordSignIn(identifier: string, password: string): Promise<KratosClient.SuccessfulNativeLogin> {
     try {
       const flow = await this.kratos.createNativeLoginFlow()
 

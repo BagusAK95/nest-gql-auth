@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { UserResolver } from "./user.resolver";
+import { AuthResolver } from "./auth.resolver";
 import { KratosModule } from "../kratos/kratos.module";
 
 @Module({
@@ -7,7 +7,7 @@ import { KratosModule } from "../kratos/kratos.module";
     KratosModule
   ],
   providers: [
-    UserResolver
+    AuthResolver
   ],
 })
-export class UserModule {}
+export class AuthModule {}

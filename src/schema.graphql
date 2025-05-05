@@ -2,27 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Mutation {
-  login(input: UserLoginInput!): UserLoginOutput!
-}
-
-type Query {
-  users: [User!]!
-}
-
-type User {
-  email: String!
-  firstName: String!
+type AuthSession {
+  expiresAt: String!
   id: ID!
-  lastName: String!
-  phone: String!
+  issuedAt: String!
 }
 
-input UserLoginInput {
+input AuthSignInRequest {
   identifier: String!
   password: String!
 }
 
-type UserLoginOutput {
+type AuthSignInResponse {
   token: String!
+}
+
+type Mutation {
+  signIn(input: AuthSignInRequest!): AuthSignInResponse!
+}
+
+type Query {
+  session: AuthSession!
 }

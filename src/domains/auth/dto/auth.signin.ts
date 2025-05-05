@@ -1,7 +1,7 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
 @InputType()
-export class UserLoginInput {
+export class AuthSignInRequest {
   @Field()
   identifier: string;
 
@@ -10,7 +10,7 @@ export class UserLoginInput {
 }
 
 @ObjectType()
-export class UserLoginOutput {
+export class AuthSignInResponse {
   @Field()
   token: string;
 }
